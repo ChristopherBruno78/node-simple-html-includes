@@ -1,0 +1,11 @@
+{
+  "name": "node-simple-html-includes",
+  "version": "0.0.1",
+  "description": "Simple HTML templating package for Node, based on ASP.NET Razor syntax.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mark Drake <markusdrake@gmail.com> (http://markadrake.com)",
+  "license": "ISC"
+}

@@ -4,7 +4,7 @@
   "description": "Simple HTML templating package for Node, based on ASP.NET Razor syntax.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha tests"
   },
   "author": "Mark Drake <markusdrake@gmail.com> (https://markadrake.com)",
   "license": "MIT",

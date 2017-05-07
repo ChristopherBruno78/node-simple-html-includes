@@ -1,7 +1,7 @@
 {
   "name": "node-simple-html-includes",
-  "version": "0.0.1",
-  "description": "Simple HTML templating package for Node, based on ASP.NET Razor syntax.",
+  "version": "0.1.0",
+  "description": "Simple HTML templating package for Node, loosely based on ASP.NET Razor syntax.",
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha tests"

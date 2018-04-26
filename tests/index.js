@@ -8,24 +8,25 @@ describe("Node Simple HTML Includes", function () {
 	// TODO don't rely on regex (?)
 
 	it("Layout", function () {
-		let content = simpleHTMLIncludes("./tests/_layout.test.html"),
-			result = fs.readFileSync("./tests/_layout.result.html", "utf8");
+		let responseObject = simpleHTMLIncludes("./tests/_layout.test.html"),
+			result = fs.readFileSync("./tests/_layout.result.html", "utf8").toString();
 
-		assert.equal(content, result);
+		assert.equal(responseObject.content, result);
 	});
 
 	it("Html.Partial", function (callback) {
-		let result = simpleHTMLIncludes("./tests/_html.partial.test.html");
+		let responseObject = simpleHTMLIncludes("./tests/_html.partial.test.html");
 
 		fs.readFile("./tests/_html.partial.result.html", function (err, data) {
-			assert.equal(data, result);
+			assert.equal(data, responseObject.content);
 			callback();
 		});
 	});
 
 	it("Variable", function () {
 		let result = simpleHTMLIncludes("./tests/_variable.test.html", {
-			variable: "Hello World"
+			variable: "Hello World",
+			variable2: "Hello World 2"
 		});
 		//fs.readFile("./variable.html", function (err, data) {});
 

@@ -32,16 +32,24 @@ describe("Node Simple HTML Includes", function () {
 		});
 	});
 
-	it("Use JSON as a second parameter for @Html.Partial()", function () {
-		let result = simpleHTMLIncludes("./tests/_variable.test.html", {
+	it("Use JSON as a second parameter for @Html.Partial()", function (callback) {
+		let responseObject = simpleHTMLIncludes("./tests/_variable.test.html", {
 			variable: "Hello World",
 			variable2: "Hello World 2"
 		});
-		//fs.readFile("./variable.html", function (err, data) {});
 
-		fs.readFile("./_variable.result.html", function (err, data) {
-			assert.equal(data, result);
+		fs.readFile("./tests/_variable.result.html", function (err, data) {
+			assert.equal(responseObject.content, data);
+			callback();
 		});
+	});
+
+	it("Should not error when processing other scripts", function (callback) {
+		let responseObject = simpleHTMLIncludes("./tests/_scripts.test.html");
+		fs.readFile("./tests/_scripts.result.html", function (err, data) {
+			assert.equal(responseObject.content, data);
+			callback();
+		});		
 	});
 
 });

@@ -31,7 +31,6 @@ describe("Node Simple HTML Includes", function () {
 			callback();
 		});
 	});
-
 	it("Use JSON as a second parameter for @Html.Partial()", function (callback) {
 		let responseObject = simpleHTMLIncludes("./tests/_variable.test.html", {
 			variable: "Hello World",
@@ -50,6 +49,16 @@ describe("Node Simple HTML Includes", function () {
 			assert.equal(responseObject.content, data);
 			callback();
 		});		
+	});
+
+
+	it("Should render a partial inside another partial when it's on the first line", function(callback) {
+		let responseObject = simpleHTMLIncludes("./tests/_html.partial.nested.test.html");
+		fs.readFile("./tests/_partial.nested.result.html", "utf8", function (err, data) {
+			assert.equal(responseObject.content, data);
+			callback();
+		});	
+
 	});
 
 });

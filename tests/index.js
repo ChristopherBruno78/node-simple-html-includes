@@ -52,7 +52,7 @@ describe("Node Simple HTML Includes", function () {
 	});
 
 
-	it("Should render a partial inside another partial when it's on the first line", function(callback) {
+	it("Should render a nested partial with no additional new lines or html", function(callback) {
 		let responseObject = simpleHTMLIncludes("./tests/_html.partial.nested.test.html");
 		fs.readFile("./tests/_partial.nested.result.html", "utf8", function (err, data) {
 			assert.equal(responseObject.content, data);
